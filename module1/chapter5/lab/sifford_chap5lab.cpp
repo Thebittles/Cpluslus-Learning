@@ -64,6 +64,10 @@ int main()
     store2 /= 100;
     store3 /= 100;
 
+    store1 = floor(store1);
+    store2 = floor(store2);
+    store3 = floor(store3);
+
     // Display store 1
     if (store1 < 1)
     {
