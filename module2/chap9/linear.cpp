@@ -41,3 +41,4 @@ int linearSearch(const int array[], int size, int value){
     }
     return position;
 }
+

@@ -1,45 +1,73 @@
+//******************************************************************
+// Chapter 9 Lab - Program
+// Programmer: Brittany Sifford
+// Completed :  10/28/2022
+// Status    :  Complete
+ 
+// Description:  This program grabs 10 artist and songs for a playlist and then displays them to the user.
+//******************************************************************
+
+
 #include <iostream>
 #include <string>
 #include <iomanip>
 using namespace std;
 
 
-
-int main(){
-
  struct Song {
     string title;
     string artist;
  };
 
+//Function Prototypes
+ void getData(Song Playlist[], int SIZE);
+ void bubbleSort(Song array[], int SIZE);
+ void displayData(Song array[], int SIZE);
+
  //Set size for array
  const int SIZE = 10;
+
+
+//Main Function
+int main(){
+
  // Create the array
   Song Playlist[SIZE];
 
- //Function to get data from user
- void getData(Song Playlist[], int SIZE);{
-
-    for(int i = 0; i <= SIZE; i++){
-        cout << "Song " << i+1 << endl;
-
-        cout << "Enter the tile of the song: \n";
-        getline(cin, Playlist[i].title);
-
-        cout << "Enter the artist of the song: \n";
-        getline(cin, Playlist[i].artist);
-    }
- }// Close getData function
-
+ //Call the functions
+ getData(Playlist, SIZE);
+ bubbleSort(Playlist, SIZE);
+ displayData(Playlist, SIZE);
 
  return 0;
 }
 
 
 
+////////////////// Functions
+
+
+//Function to get data from user
+ void getData(Song Playlist[], int SIZE){
+
+    for(int i = 0; i < SIZE; i++){
+        cout << "Song " << i+1 << endl;
+
+        //Get the artist
+        cout << "Enter the artist of the song: \n";
+        getline(cin, Playlist[i].artist);
+        //Get the title of the song
+        cout << "Enter the title of the song: \n";
+        getline(cin, Playlist[i].title);
+
+    }
+ }// Close getData function
+
+
+
 
 // Bubble Sort function 
-void bubbleSort(Playlist array[], int SIZE){
+void bubbleSort(Song array[], int SIZE){
 
 bool madeSwap = true; // Allows loop to run
  // Start at the end            Greater than 0 and made a swap  Decrement one from maxElement
@@ -61,8 +89,24 @@ bool madeSwap = true; // Allows loop to run
 
 
 // Swap function
-void swap(Playlist &a, Playlist &b){
-    Playlist temp = a;
+void swap(Song &a, Song &b){
+    Song temp = a;
     a = b;
     b = temp;
 }
+
+
+
+
+// Display Data
+void displayData(Song Playlist[], int SIZE){
+
+cout << "\t" << "Artist" << "\t\t" << "Song" << "\t" << endl;
+cout << "=================================================" << endl;
+ for(int i = 0; i < SIZE; i++){
+    cout << left << setw(20) << Playlist[i].artist << '\t';
+    cout << Playlist[i].title << endl;
+ }
+
+}
+

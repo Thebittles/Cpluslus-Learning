@@ -42,7 +42,7 @@ class Inventory {
 
 
 // Function prototype
-int search(const Inventory[], int, string);
+int search(const Inventory [], int, string);
 
 
 int main(){
