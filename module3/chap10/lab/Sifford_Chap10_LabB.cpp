@@ -21,7 +21,7 @@ double average(int *, int );
 
 int main(){
 
-    int  *numMoviesWatch, numOfStudents;
+    int numOfStudents;
 
     //Grab the num of students
     cout << "Enter the number of students: " << endl;
@@ -34,7 +34,7 @@ int main(){
     }
 
     //Create the array
-    int numMoviesWatch = new [numOfStudents];
+    int *numMoviesWatch = new int[numOfStudents];
 
     //Calling the get data function
     getData(numMoviesWatch, numOfStudents);
@@ -48,6 +48,9 @@ int main(){
     // Calculating Average
     cout << "Average is: " << fixed << showpoint << setprecision(2) << average(numMoviesWatch, numOfStudents) << endl;
 
+    //Deleting the array
+    delete [] numMoviesWatch;
+    numMoviesWatch = nullptr;
 
     return 0;
 }
